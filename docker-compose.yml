@@ -1,0 +1,8 @@
+services:
+  aspdotnut.io:
+    container_name: aspdotnut.io
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '0420:3000'
