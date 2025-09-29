@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Head from 'next/head'
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import React from "react";
@@ -23,9 +22,6 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en">
-      <Head>
-          <meta name="theme-color" content="#3a3a3c"/>
-      </Head>
       <body className={poppins.className + " min-h-screen flex flex-col bg-background"}>
       <Header/>
       <div className={"flex-grow flex justify-center w-full"}>
