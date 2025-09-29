@@ -6,7 +6,7 @@ export default function Header(){
     const [isActive, setIsActive] = useState(false);
     return (
         <>
-            <header className={"tanker-font sticky top-0 z-10"}>
+            <header className={"tanker-font top-0 z-10"}>
                 <div className={"flex justify-between md:justify-normal gap-10 bg-special p-2 text-xl"}>
                     <Link className={"text-specialText"} href={"/"}>ASPDOTNUT</Link>
                     <div className={"hidden md:flex gap-10"}>
