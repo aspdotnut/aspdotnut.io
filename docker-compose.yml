@@ -4,5 +4,64 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - 'directus'
     ports:
       - '0420:3000'
+    networks:
+      - aspdotnut_network
+
+  postgres:
+    container_name: aspdotnut.io-postgres
+    image: ankane/pgvector:v0.4.4
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    ports:
+      - '0422:5432'
+    environment:
+      POSTGRES_USER: '${DB_USER}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD}'
+      POSTGRES_DB: '${DB_NAME}'
+    networks:
+      - aspdotnut_network
+
+  directus:
+    container_name: aspdotnut.io-directus
+    image: directus/directus:11.3
+    volumes:
+      - directus-uploads:/directus/uploads
+    depends_on:
+      - 'postgres'
+    ports:
+      - '0421:8055'
+    environment:
+      KEY: '${DIRECTUS_KEY}'
+      SECRET: '${DIRECTUS_SECRET}'
+      PUBLIC_URL: '${DIRECTUS_PUBLIC_URL}'
+      DB_CLIENT: '${DB_CLIENT}'
+      DB_HOST: '${DB_CONTAINER_NAME}'
+      WEBSOCKETS_ENABLED: true
+      DB_PORT: '5432'
+      DB_DATABASE: '${DB_NAME}'
+      DB_USER: '${DB_USER}'
+      DB_PASSWORD: '${DB_PASSWORD}'
+      CONTENT_SECURITY_POLICY_DIRECTIVES__CONNECT_SRC: "array:'self',blob:,http://*,https://*, http://localhost:*, https://google.com"
+      CACHE_ENABLED: 'false'
+      CORS_ENABLED: 'true'
+      CORS_ORIGIN: '*'
+      ADMIN_EMAIL: '${DIRECTUS_ADMIN_EMAIL}'
+      ADMIN_PASSWORD: '${DIRECTUS_ADMIN_PASSWORD}'
+      EXTENSIONS_AUTO_RELOAD: 'true'
+      REFRESH_TOKEN_TTL: '14d'
+      EMAIL_TRANSPORT: 'none'
+      LOG_LEVEL: 'debug'
+    networks:
+      - aspdotnut_network
+
+networks:
+  aspdotnut_network:
+    driver: bridge
+
+volumes:
+  aspdotnut-pg-data:
+  aspdotnut-directus-uploads:
