@@ -63,5 +63,5 @@ networks:
     driver: bridge
 
 volumes:
-  aspdotnut-pg-data:
-  aspdotnut-directus-uploads:
+  pg-data:
+  directus-uploads:
