@@ -11,6 +11,7 @@ const config: Config = {
             colors: {
                 'normalText': '#ededed',
                 'specialText': '#000000',
+                'specialTextHover': '#a2a2a2',
                 'special': '#f8e9bd',
                 'background': '#1d1d1e',
                 'darkenedBlur': 'rgba(0, 0, 0, 0.2)'
