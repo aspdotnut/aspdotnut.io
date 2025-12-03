@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en">
-      <body className={poppins.className + " min-h-screen flex flex-col bg-background"}>
+      <body className={poppins.className + " relative min-h-screen flex flex-col bg-background"}>
       <Header/>
       <div className={"flex-grow flex justify-center w-full"}>
           <div className={"w-full max-w-screen-lg px-4"}>

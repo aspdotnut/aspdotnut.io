@@ -15,18 +15,6 @@ export default function Header(){
                         <Link className={"hover:text-specialTextHover transition ease-in-out text-specialText"} href={"/about"}>ABOUT</Link>
                         <Link className={"hover:text-specialTextHover transition ease-in-out text-specialText"} href={"/socials"}>SOCIALS</Link>
                     </div>
-                    <div className={"md:hidden"}>
-                        <button className={`block ${isActive ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} bg-darkenedBlur fixed top-0 left-0 right-0 bottom-0 min-h-screen backdrop-blur-sm z-20 transition ease-in-out duration-300 flex flex-col text-base py-16 px-2`}
-                                onClick={()=>{
-                                    setIsActive(!isActive)
-                                }}
-                        >
-                            <Link className={"hover:text-specialTextHover transition ease-in-out text-6xl text-special w-fit"} onClick={()=>{setIsActive(!isActive)}} href={"/"}>HOME</Link>
-                            {/*<Link className={"hover:text-specialTextHover transition ease-in-out text-6xl text-special w-fit"} onClick={()=>{setIsActive(!isActive)}} href={"https://blog.aspdotnut.io"} rel="noopener noreferrer">BLOG</Link>*/}
-                            <Link className={"hover:text-specialTextHover transition ease-in-out text-6xl text-special w-fit"} onClick={()=>{setIsActive(!isActive)}} href={"/about"}>ABOUT</Link>
-                            <Link className={"hover:text-specialTextHover transition ease-in-out text-6xl text-special w-fit"} onClick={()=>{setIsActive(!isActive)}} href={"/socials"}>SOCIALS</Link>
-                        </button>
-                    </div>
                     <div className={"md:hidden h-[28px] flex items-center justify-center"}>
                         <button
                             onClick={() => {
@@ -41,18 +29,17 @@ export default function Header(){
                     </div>
                 </div>
             </header>
-            <div className={"md:hidden"}>
-                <button className={`block ${isActive ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} bg-darkenedBlur fixed top-0 left-0 right-0 bottom-0 min-h-screen backdrop-blur-sm z-20 transition ease-in-out duration-300 flex flex-col text-base py-16 px-2`}
-                        onClick={()=>{
-                            setIsActive(!isActive)
-                        }}
-                >
+            <div className={`md:hidden block ${isActive ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} fixed top-16 left-2 z-20 transition ease-in-out duration-300 flex flex-col text-base`}>
                     <Link className={"hover:text-specialTextHover transition ease-in-out text-6xl text-special w-fit"} onClick={()=>{setIsActive(!isActive)}} href={"/"}>HOME</Link>
                     {/*<Link className={"hover:text-specialTextHover transition ease-in-out text-6xl text-special w-fit"} onClick={()=>{setIsActive(!isActive)}} href={"https://blog.aspdotnut.io"} rel="noopener noreferrer">BLOG</Link>*/}
                     <Link className={"hover:text-specialTextHover transition ease-in-out text-6xl text-special w-fit"} onClick={()=>{setIsActive(!isActive)}} href={"/about"}>ABOUT</Link>
                     <Link className={"hover:text-specialTextHover transition ease-in-out text-6xl text-special w-fit"} onClick={()=>{setIsActive(!isActive)}} href={"/socials"}>SOCIALS</Link>
-                </button>
             </div>
+            <button className={`block ${isActive ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} bg-darkenedBlur absolute h-full w-full backdrop-blur-sm z-10 transition ease-in-out duration-300 flex flex-col text-base`}
+                    onClick={()=>{
+                        setIsActive(!isActive)
+                    }}
+            />
         </>
     );
 }
