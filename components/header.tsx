@@ -26,7 +26,6 @@ export default function Header(){
                         <Link className={"hover:text-specialTextHover transition ease-in-out text-specialText"} href={"/about"}>ABOUT</Link>
                         <Link className={"hover:text-specialTextHover transition ease-in-out text-specialText"} href={"/socials"}>SOCIALS</Link>
                     </div>
-                    
                     <div className={"md:hidden h-[28px] flex items-center justify-center"}>
                         <button
                             onClick={() => {
